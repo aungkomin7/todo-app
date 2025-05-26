@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import { checkList, createNewList, deleteList, editList } from "./lists";
 import { listGroup, taskInput } from "./selectors";
 
@@ -7,7 +8,14 @@ export const addTask = (taskname) => {
 };
 
 export const addTaskHandler = () => {
-  addTask(taskInput.value);
+  if (taskInput.value.trim()) {
+    addTask(taskInput.value);
+  } else {
+    Swal.fire({
+      text: "Fill add new task name!",
+      icon: "question",
+    });
+  }
 };
 
 export const listGroupHandler = (event) => {
@@ -21,7 +29,42 @@ export const listGroupHandler = (event) => {
 };
 
 export const taskInputHandler = (event) => {
-  if (event.key === "Enter") {
-    addTask(taskInput.value);
+  if (taskInput.value.trim()) {
+    if (event.key === "Enter") {
+      addTask(taskInput.value);
+    }
+  } else {
+    Swal.fire({
+      text: "Fill add new task name!",
+      icon: "question",
+    });
   }
+};
+
+export const checkAllBtnHandler = () => {
+
+    const lists = document.querySelectorAll(".list");
+    lists.forEach((el) => {
+        el.querySelector(".check-box").checked = true;
+        checkList(el.id)
+    })
+};
+
+export const deleteAllBtnHandler = () => {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const lists = document.querySelectorAll(".list");
+      lists.forEach((el) => {
+        el.remove();
+      });
+    }
+  });
 };
