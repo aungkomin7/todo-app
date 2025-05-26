@@ -1,10 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
-
-@import "tailwindcss";
-
 @import url("../node_modules/animate.css/animate.css");
 @import url("../node_modules/sweetalert2/dist/sweetalert2.min.css");
+
+@import "tailwindcss";
 
 @import "flowbite/src/themes/default";
 @plugin "flowbite/plugin";
@@ -18,4 +17,24 @@
 
   --font-mono: "JetBrains Mono", "SFMono-Regular", "Menlo", "Monaco", "Consolas",
     "Liberation Mono", "Courier New", "monospace";
+}
+
+.swal2-confirm {
+  @apply text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm px-5 py-2.5 max-sm:px-2.5 max-sm:py-1 dark:bg-blue-600 dark:hover:bg-blue-700;
+}
+
+.swal2-cancel {
+  @apply text-white bg-red-700 hover:bg-red-800  font-medium rounded-lg text-sm px-5 py-2.5 max-sm:px-2.5 max-sm:py-1 dark:bg-red-600 dark:hover:bg-red-700;
+}
+
+.swal2-popup{
+  @apply bg-slate-800 max-sm:w-[250px] 
+}
+
+.swal2-title{
+  @apply max-sm:text-sm dark:text-slate-50
+}
+
+.swal2-html-container{
+  @apply max-sm:text-xs dark:text-slate-400
 }
