@@ -78,7 +78,6 @@ export const editList = (listId) => {
   newTaskInput.classList.add(
     "bg-gray-50",
     "border-b",
-
     "border-gray-300",
     "text-gray-900",
     "text-sm",
@@ -94,7 +93,7 @@ export const editList = (listId) => {
     "dark:text-white",
     "dark:focus:border-blue-500",
     "focus-visible:outline-none",
-    "text-mono",
+    "font-mono",
    
   );
   newTaskInput.value = currentTask.innerText;
